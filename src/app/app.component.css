@@ -1,0 +1,13 @@
+mat-toolbar {
+    justify-content: space-between;
+    background-color: indigo;
+    color: white;
+}
+
+#button {
+   background-color: indigo; 
+}
+
+.content {
+    padding: 32px;
+}

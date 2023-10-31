@@ -1,0 +1,52 @@
+h1 {
+    padding-top: 20px;
+}
+
+.form-container {
+    display: block;
+    max-width: 600px;
+    margin: auto;
+}
+
+.profile-image {
+    position: relative;
+    width: 120px;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  
+.profile-image > img {
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+.profile-image > button {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+  
+.row {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 16px;
+}
+
+.button {
+    margin-bottom: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top {
+    margin-top: 16px;
+}
+
+.text-center {
+    text-align: center;
+}

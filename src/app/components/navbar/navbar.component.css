@@ -1,0 +1,20 @@
+mat-toolbar {
+    justify-content: space-between;
+    background-color: #e72929;
+    color: white;
+}
+
+a {
+    justify-content: space-between;
+    background-color: #e72929;
+    color: white;
+    text-decoration: none;
+}
+
+#button {
+   background-color: #e72929; 
+}
+
+.content {
+    padding: 32px;
+}

@@ -1,0 +1,65 @@
+<div class="form-container mat-elevation-z5 text-center">
+    <div class="profile-image">
+        <img
+          width="300rem"
+          height="300rem"
+          class="margin-top mat-elevation-z1"
+          [src]="food.imageURL"
+        />
+        <button mat-mini-fab (click)="inputField.click()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <input #inputField hidden type="file" (change)="uploadFoodImage($event, food)" />
+    
+    <form class="margin-top" [formGroup]="productEditForm" (ngSubmit)="updateFood()">
+      <div class="form-group">
+        <label for="name">Product Name:</label>
+        <input id="name" type="text" matInput formControlName="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input id="price" type="number" matInput formControlName="price" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="cookTime">Cook Time:</label>
+        <input id="cookTime" type="text" matInput formControlName="cookTime" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="mealtime">Meal Time:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Mealtime:</mat-label>
+          <mat-select formControlName="mealtime" required>
+            <mat-option value="breakfast">Breakfast</mat-option>
+            <mat-option value="lunch">Lunch</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <label for="tags">Tags:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Tags:</mat-label>
+          <mat-select formControlName="tag">
+            <mat-option value="soup">Soup</mat-option>
+            <mat-option value="pizza">Pizza</mat-option>
+            <mat-option value="pasta">Pasta</mat-option>
+            <mat-option value="fry">Fry</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+  
+      <div class="form-group">
+        <mat-checkbox formControlName="isVegetarian">Is Vegetarian</mat-checkbox>
+      </div>
+  
+      <button type="submit" (click)="updateFood()" class="margin-top button" mat-raised-button color="primary">
+        Update item
+      </button>
+    </form>
+  </div>
+  

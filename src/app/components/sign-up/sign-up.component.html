@@ -1,0 +1,59 @@
+<div class="form-container">
+    <h1>Sign up a new user</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName" />
+            <mat-error *ngIf="firstName?.errors?.['required']">
+                First name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName" />
+            <mat-error *ngIf="lastName?.errors?.['required']">
+                Last name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Address" formControlName="address" />
+            <mat-error *ngIf="address?.errors?.['required']">
+                Address is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phone" />
+            <mat-error *ngIf="phone?.errors?.['required']">
+                Address is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a correct email adrress
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password"/>
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Confirm password" formControlName="confirmPassword" type="password"/>
+            <mat-error *ngIf="password?.errors?.['required']">
+                Confirm password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+            Passwords should match
+        </mat-error>
+
+        <div class="center margin-top">
+            <button class="button" mat-raised-button type="submit">
+                Sign Up!
+            </button>
+        </div>
+    </form>
+</div>

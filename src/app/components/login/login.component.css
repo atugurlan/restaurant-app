@@ -1,0 +1,36 @@
+.form-container {
+    display: block;
+    max-width: 600px;
+    margin: auto;
+    padding: 48px;
+
+    background-color: lightgoldenrodyellow;
+    border-radius: 16px;;
+}
+
+.form-container mat-form-field {
+    width: 100%;
+}
+
+.button {
+    background-color: indigo;
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top {
+    margin-top: 16px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.sign-up-link {
+    font-size: 1.2rem;
+    margin-left: 8px;
+}

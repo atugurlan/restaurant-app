@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row row-cols-md-4">
+      <div class="col">
+        <p>New Orders</p>
+        <ul>
+          <li *ngFor='let order of newOrders'>
+            <div class="order-container">
+              <div class="order-details" *ngIf="!order.isEditable">
+                <p><strong>Order ID:</strong> {{ order.id }}</p>
+                <p><strong>Customer:</strong> {{ order.customer }}</p>
+                <p><strong>Products:</strong> {{ order.cart }}</p>
+                <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+              </div>
+              <div class="order-edit" *ngIf="order.isEditable">
+                    <p><strong>Order ID:</strong> {{ order.id }}</p>
+                    <p><strong>Customer:</strong> {{ order.customer }}</p>
+                    <p><strong>Products:</strong> {{ order.cart }}</p>
+                    <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+                    <p><strong>New Status:</strong></p>
+                    <mat-form-field apearance="fill">
+                      <mat-label>New status</mat-label>
+                      <mat-select [(ngModel)]="order.status">
+                        <mat-option value="pending">pending</mat-option>
+                        <mat-option value="rejected">rejected</mat-option>
+                        <mat-option value="completed">completed</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+              </div>
+              <div class="order-actions">
+                  <button *ngIf="!order.isEditable" (click)="toggleEdit(order)">Edit</button>
+                  <button *ngIf="order.isEditable" (click)="updateOrder(order)">Save</button>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+      
+    <div class="col">
+      <p>Pending Orders</p>
+      <ul>
+        <li *ngFor='let order of pendingOrders'>
+          <div class="order-container">
+            <div class="order-details" *ngIf="!order.isEditable">
+              <p><strong>Order ID:</strong> {{ order.id }}</p>
+              <p><strong>Customer:</strong> {{ order.customer }}</p>
+              <p><strong>Products:</strong> {{ order.cart }}</p>
+              <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+            </div>
+            <div class="order-edit" *ngIf="order.isEditable">
+              <p><strong>Order ID:</strong> {{ order.id }}</p>
+              <p><strong>Customer:</strong> {{ order.customer }}</p>
+              <p><strong>Products:</strong> {{ order.cart }}</p>
+              <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+              <p><strong>New Status:</strong></p>
+              <mat-form-field apearance="fill">
+                <mat-label>New status</mat-label>
+                  <mat-select [(ngModel)]="order.status">
+                    <mat-option value="rejected">rejected</mat-option>
+                    <mat-option value="completed">completed</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="order-actions">
+              <button *ngIf="!order.isEditable" (click)="toggleEdit(order)">Edit</button>
+              <button *ngIf="order.isEditable" (click)="updateOrder(order)">Save</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <p>Rejected Orders</p>
+      <ul>
+        <li *ngFor='let order of rejectedOrders'>
+          <div class="order-container">
+            <div class="order-details">
+              <p><strong>Order ID:</strong> {{ order.id }}</p>
+              <p><strong>Customer:</strong> {{ order.customer }}</p>
+              <p><strong>Products:</strong> {{ order.cart }}</p>
+              <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <p>Completed Orders</p>
+      <ul>
+        <li *ngFor='let order of completedOrders'>
+          <div class="order-container">
+            <div class="order-details">
+              <p><strong>Order ID:</strong> {{ order.id }}</p>
+              <p><strong>Customer:</strong> {{ order.customer }}</p>
+              <p><strong>Products:</strong> {{ order.cart }}</p>
+              <p><strong>Total Price:</strong> {{ order.price | currency }}</p>
+              <mat-icon>done</mat-icon>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

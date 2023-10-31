@@ -1,0 +1,52 @@
+<div *ngIf="this.cart && this.cart.items">
+    <ul>
+        <li *ngFor="let cartItem of this.cart.items">
+            <div>
+                <img [src]="cartItem.food.imageURL" [alt]="cartItem.food.name">
+            </div>
+
+            <div class="details">
+                <div class="name">
+                    <a routerLink="/food/{{cartItem.food.id}}">
+                        {{cartItem.food.name}}
+                    </a>
+                </div>
+        
+                <div>
+                    <select #quantitySelect (change)="changeQuantity(cartItem, quantitySelect.value)">
+                        <option>{{cartItem.quantity}}</option>
+                        <option *ngIf="cartItem.quantity != 1">1</option>
+                        <option *ngIf="cartItem.quantity != 2">2</option>
+                        <option *ngIf="cartItem.quantity != 3">3</option>
+                        <option *ngIf="cartItem.quantity != 4">4</option>
+                    </select>
+                </div>
+        
+                <div>
+                    {{cartItem.price | currency}}
+                </div>
+            </div>
+
+            <div class="item-order">
+                {{cartItem.quantity}} items x {{cartItem.food.price | currency: 'EUR'}} = {{ (cartItem.quantity * cartItem.food.price) | currency: 'EUR' }}
+            </div>
+
+            <div>
+                <button class="remove-button" (click)="removeFromCart(cartItem)">Remove</button>
+            </div>
+
+            <br>
+        </li>
+    </ul>
+</div>
+
+<div class="checkout">
+    <div class="total-price" *ngIf="this.cart.items.length!=0">
+        <p>Total price: </p>
+        {{this.cart.totalPrice | currency}} 
+    </div>
+
+    <p *ngIf="this.cart.items.length==0">Shopping cart is empty</p>
+
+    <button *ngIf="this.cart.items.length != 0" routerLink="/order-success" (click)="addOrder()">Go to checkout</button>
+</div>

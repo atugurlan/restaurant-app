@@ -1,0 +1,33 @@
+<div class="container" *ngIf="food">
+    <img [src]="food.imageURL" [alt]="food.name">
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{food.name}}
+            </span>
+        </div>
+
+        <div class="tags">
+            <a>{{food.tag}}</a>
+        </div>
+    
+        <div class="mealtime">
+            <a>{{food.mealtime}}</a>
+        </div>
+    
+        <div class="vegetarian">
+            <a *ngIf="food.vegetarian">Vegetarian</a>
+        </div>
+    
+        <div class="cooking-time">
+            <span>Time to cook about <strong>{{food.cookTime}}</strong> minutes</span>
+        </div>
+    
+        <div class="price">
+            <span>{{food.price|currency: 'EUR'}}</span>
+        </div>
+
+        <button (click)="addToCart(food)">Add to Cart</button>
+    </div>
+</div>
